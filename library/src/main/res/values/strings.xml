@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BindingListView</string>
+    <string name="loading">Cargando...</string>
+
+</resources>

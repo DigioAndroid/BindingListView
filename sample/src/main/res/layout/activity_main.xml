@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.accesium.bindinglistview.viewmodel.RecyclerListViewModel" />
+
+
+        <import type="com.accesium.sample.R" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:visibility="@{viewmodel.placeholderVisibility}"
+                android:text="@string/placeholder"/>
+
+            <com.marshalchen.ultimaterecyclerview.UltimateRecyclerView
+                android:id="@+id/request_list"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none"
+                app:onClick="@{viewmodel.clickListener}"
+                app:itemLayout="@{R.layout.adapter_item}"
+                app:items="@{viewmodel.items}"
+                app:onLoadMore="@{viewmodel.loadMoreListener}" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</layout>
